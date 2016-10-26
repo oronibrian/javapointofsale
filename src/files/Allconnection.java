@@ -1,4 +1,4 @@
-package pointofsale;
+package files;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -15,9 +15,9 @@ public class Allconnection {
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost/Pointofsale", "root", "");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost/pub", "root", "");
             st = conn.createStatement();
-            System.out.println("Pointofsale");
+            System.out.println("bar");
             return conn;
         } catch (SQLException e) {
            

@@ -3,11 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pointofsale;
-
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import javax.swing.JOptionPane;
+package files;
 
 /**
  *
@@ -15,12 +11,16 @@ import javax.swing.JOptionPane;
  */
 public class Login extends javax.swing.JFrame {
 
+    /**
+     * Creates new form Login
+     */
     public Login() {
         initComponents();
-        this.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null); 
         this.setVisible(true);
     }
 
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -50,8 +50,7 @@ public class Login extends javax.swing.JFrame {
 
         jButton2.setText("Exit");
 
-        cmbaccount.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "sales", " " }));
-        cmbaccount.setToolTipText("");
+        cmbaccount.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "sales" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -119,24 +118,17 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         if (txtusername.getText().length()==0
-                && txtpassword.getText().length()==0
-                && cmbaccount.getSelectedItem().equals("Select")) {
-                JOptionPane.showMessageDialog(null, "Empty fields detected ! Please fill up all fields");
-
-           
-        }
-        
-         else if (txtusername.getText().equals("admin")
-                && txtpassword.getText().equals("admin")
-                && cmbaccount.getSelectedItem().equals("sales")) {
-            Home h = new Home();
-            h.btnsale.setEnabled(false);
-            h.setVisible(true);
-            this.dispose();
-            setVisible(false);
-
-        }
+      if(txtusername.getText().equals("admin")
+              && txtpassword.getText().equals("admin") 
+              && cmbaccount.getSelectedItem().equals("sales"))
+      {
+Home h = new Home() ;
+h.btnsale.setEnabled(false);
+h.setVisible(true);
+this.dispose();
+setVisible(false);
+      
+      }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -173,25 +165,6 @@ public class Login extends javax.swing.JFrame {
             }
         });
     }
-    
-    
-private boolean validate_login(String username,String password) {
-   try{           
-       Allconnection conn = (Allconnection) Allconnection.Allconnection();  // MySQL database connection
-       //PreparedStatement pst = conn.prepareStatement("Select * from login where username=? and password=?");
-//       pst.setString(1, username); 
-//       pst.setString(2, password);
-//       ResultSet rs = pst.executeQuery();                        
-//       if(rs.next())            
-//           return true;    
-//       else
-//           return false;            
-   }
-   catch(Exception e){
-       e.printStackTrace();
-       return false;
-   }       
-}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cmbaccount;
