@@ -17,7 +17,7 @@ public class Allconnection {
             Class.forName("com.mysql.jdbc.Driver");
             conn = DriverManager.getConnection("jdbc:mysql://localhost/Pointofsale", "root", "");
             st = conn.createStatement();
-            System.out.println("bar");
+            System.out.println("Connected");
             return conn;
         } catch (SQLException e) {
            

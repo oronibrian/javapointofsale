@@ -5,6 +5,7 @@
  */
 package files;
 
+import static files.Allconnection.conn;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -23,6 +24,8 @@ public class Login extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setVisible(true);
+        Connection conn = Allconnection.Allconnection();
+
     }
 
     @SuppressWarnings("unchecked")
@@ -188,8 +191,7 @@ public class Login extends javax.swing.JFrame {
     
 private boolean validate_login(String username,String password) {
    try{           
-      Connection conn = Allconnection.Allconnection();
-       PreparedStatement pst = conn.prepareStatement("Select * from user where firstname=? and password=?");
+       PreparedStatement pst = conn.prepareStatement("Select * from user where Firstname=? and password=?");
        pst.setString(1, username); 
        pst.setString(2, password);
        ResultSet rs = pst.executeQuery();                        
