@@ -16,15 +16,15 @@ import javax.swing.JOptionPane;
  * @author oroni
  */
 public class Login extends javax.swing.JFrame {
-
-    /**
-     * Creates new form Login
-     */
+       PreparedStatement pst;
+       Connection conn;
+       ResultSet rs ;
     public Login() {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setVisible(true);
-        Connection conn = Allconnection.Allconnection();
+        conn = Allconnection.Allconnection();
+
 
     }
 
@@ -190,11 +190,16 @@ public class Login extends javax.swing.JFrame {
     }
     
 private boolean validate_login(String username,String password) {
+            String pass = String.valueOf(txtpassword.getPassword());
+
+                String sql="SELECT * FROM  `user` WHERE  lower(`firstname`) LIKE  '"+txtusername.getText()
+                        +"' AND `post` LIKE  'Manager' AND  lower(`password`) =  '"+pass+"'";
+
    try{           
-       PreparedStatement pst = conn.prepareStatement("Select * from user where Firstname=? and password=?");
-       pst.setString(1, username); 
-       pst.setString(2, password);
-       ResultSet rs = pst.executeQuery();                        
+       pst = conn.prepareStatement( sql);
+//       pst.setString(1, username); 
+//      pst.setString(2, password);
+       rs= pst.executeQuery();                        
        if(rs.next())            
            return true;    
        else
