@@ -101,10 +101,13 @@ public class Order extends javax.swing.JFrame {
 
         jPanel2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button-synchronize_basic_red.png"))); // NOI18N
         jButton3.setText("Update");
 
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button-shuffle_blue.png"))); // NOI18N
         jButton1.setText("Place Order");
 
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/button-cross_red.png"))); // NOI18N
         jButton2.setText("Cancel Order");
 
         jLabel1.setText("Table No");
@@ -118,7 +121,7 @@ public class Order extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton2))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(4, 4, 4)
@@ -126,9 +129,8 @@ public class Order extends javax.swing.JFrame {
                         .addGap(29, 29, 29)
                         .addComponent(txttableno))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton3)
-                        .addGap(90, 90, 90)))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton3)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
