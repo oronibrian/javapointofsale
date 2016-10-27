@@ -5,6 +5,7 @@ import static files.Allconnection.conn;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 import javax.swing.table.TableModel;
 import net.proteanit.sql.DbUtils;
 
@@ -14,14 +15,14 @@ import net.proteanit.sql.DbUtils;
  */
 public class Home extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Home
-     */
+    Connection con;
+    PreparedStatement ps;
+    ResultSet rs;
     public Home() {
         initComponents();
         this.setLocationRelativeTo(null);  // *** this will center your app ***
         this.setVisible(true);
-        Connection conn = Allconnection.Allconnection();
+        con = Allconnection.Allconnection();
         populateOrder();
 
         
@@ -298,4 +299,20 @@ new Order().setVisible(true);
     public javax.swing.JTable ordertable;
     private javax.swing.JTextField txtsearchorder;
     // End of variables declaration//GEN-END:variables
+private void searchDriver() {
+        String query = "select * from `Pointofsale`.`orderplace` WHERE status='Placed'";
+        try {
+            ps = con.prepareStatement(query);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                String name = String.valueOf(rs.getString("Name"));
+                
+
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR",
+                    JOptionPane.ERROR_MESSAGE);
+
+        }
+    }
 }
