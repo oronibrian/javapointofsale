@@ -13,16 +13,12 @@ import javax.swing.table.DefaultTableModel;
 
 public class SellTable {
     
-    String conString ="jdbc:mysql://localhost:3306/Pointofsale";
-    String username ="root";
-    String passward ="";
+   Connection con;
     float total=0;
     
     public int getSellNumber(){
         
-        String cons ="jdbc:mysql://localhost:3306/Pointofsale";
-        String user ="root";
-        String pass ="";
+        
         
         int a=0;
         String sql = "SELECT number FROM sellno";
@@ -30,7 +26,7 @@ public class SellTable {
         
         
         try{
-            Connection con= (Connection) DriverManager.getConnection(cons,user,pass);
+            con= (Connection) Allconnection.Allconnection();
             
             Statement s =(Statement) con.prepareStatement(sql);
             
@@ -83,7 +79,7 @@ public class SellTable {
         
         try{
             
-            Connection con= (Connection) DriverManager.getConnection(conString, username, passward);
+            con= (Connection) Allconnection.Allconnection();
             
             Statement s =(Statement) con.prepareStatement(sql);
             
@@ -97,15 +93,15 @@ public class SellTable {
     }
     
     
-    public boolean add(String a,String name,float perprice,String vat,float buyPrice,String type){
+    public boolean add(String a,String name,float perprice,String vat,float buy_price,String type){
         
         int quantity=1;
         float price = (perprice)*quantity;
-        String sql="INSERT INTO `Pointofsale`.`"+a+"` (`no`, `name`, `quantity`, `perprice`, `vat`, `price`, `buy price`, `type`) VALUES (NULL, '"+name+"', '"+quantity+"', '"+perprice+"', '0%', '"+price+"', '"+buyPrice+"', '"+type+"')";
+        String sql="INSERT INTO `pub`.`"+a+"` (`no`, `name`, `quantity`, `perprice`, `vat`, `price`, `buy price`, `type`) VALUES (NULL, '"+name+"', '"+quantity+"', '"+perprice+"', '0%', '"+price+"', '"+buy_price+"', '"+type+"')";
         
         try{
             
-            Connection con= (Connection) DriverManager.getConnection(conString, username, passward);
+            con= (Connection) Allconnection.Allconnection();
             
             Statement s =(Statement) con.prepareStatement(sql);
             
@@ -127,7 +123,7 @@ public class SellTable {
         
         try{
             
-            Connection con= (Connection) DriverManager.getConnection(conString, username, passward);
+            con= (Connection) Allconnection.Allconnection();
             
             Statement s =(Statement) con.prepareStatement(sql);
             
@@ -150,7 +146,7 @@ public class SellTable {
         
         try{
             
-            Connection con= (Connection) DriverManager.getConnection(conString, username, passward);
+            con= (Connection) Allconnection.Allconnection();
             
             Statement s =(Statement) con.prepareStatement(sql);
             
@@ -175,13 +171,13 @@ public class SellTable {
         dm.addColumn("Per Price");
         dm.addColumn("Quantity");
         //dm.addColumn("Vat");
-       // dm.addColumn("Price");
+        dm.addColumn("Price");
         
         
         String sql = "SELECT * FROM "+a;
         
         try{
-            Connection con= (Connection) DriverManager.getConnection(conString, username, passward);
+            con= (Connection) Allconnection.Allconnection();
             
             Statement s =(Statement) con.prepareStatement(sql);
             
@@ -194,13 +190,13 @@ public class SellTable {
                 String perprice = rs.getString(4);
                 //String vat = rs.getString(5);
                 String price = rs.getString(6);
-                //String buy_price = rs.getString(7);
+                String buy_price = rs.getString(7);
                 
                 total = total+Float.parseFloat(price);
                 
                 //System.out.println(total);
                 
-                dm.addRow(new String[]{id,name,perprice,quantity,price});
+                dm.addRow(new String[]{id,name,perprice,quantity,price,buy_price});
                 
                 
                 
@@ -225,7 +221,7 @@ public class SellTable {
         
         try{
             
-            Connection con= (Connection) DriverManager.getConnection(conString, username, passward);
+            con= (Connection) Allconnection.Allconnection();
             
             Statement s =(Statement) con.prepareStatement(sq);
             
@@ -246,10 +242,10 @@ public class SellTable {
         
         try{
             
-            Connection con= (Connection) DriverManager.getConnection(conString, username, passward);
+            con= (Connection) Allconnection.Allconnection();
             
             Statement s =(Statement) con.prepareStatement(sql);
-            System.out.println("Novia");
+            System.out.println("aaaa");
             s.execute(sql);
             
             return true;
@@ -262,7 +258,7 @@ public class SellTable {
     
     
     public boolean SearchExistItem(String name,String price,String a){
-        String conString ="jdbc:mysql://localhost:3306/Pointofsale";
+        String conString ="jdbc:mysql://localhost:3306/pub";
         String username ="root";
         String passward ="";
         
@@ -305,7 +301,7 @@ public class SellTable {
     public boolean updateItem(String a,String name,float perprice,String qua){
         
         
-        String conString ="jdbc:mysql://localhost:3306/Pointofsale";
+        String conString ="jdbc:mysql://localhost:3306/pub";
         String username ="root";
         String passward ="";
         
@@ -331,7 +327,7 @@ public class SellTable {
     
     public boolean addItem(String a,String name,float perprice,String vat,float buy_price,String type,String quantity){
         
-        String conString ="jdbc:mysql://localhost:3306/Pointofsale";
+        String conString ="jdbc:mysql://localhost:3306/pub";
         String username ="root";
         String passward ="";
         

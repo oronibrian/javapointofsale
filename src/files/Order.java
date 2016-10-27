@@ -55,6 +55,8 @@ public class Order extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -92,6 +94,12 @@ public class Order extends javax.swing.JFrame {
 
         jLabel2.setText("Search");
 
+        txtsearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtsearchKeyReleased(evt);
+            }
+        });
+
         jButton4.setText("Retrieve");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -125,7 +133,7 @@ public class Order extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addComponent(txtsearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 39, Short.MAX_VALUE))
+                .addGap(0, 25, Short.MAX_VALUE))
         );
 
         jPanel2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -245,49 +253,106 @@ public class Order extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jTable2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTable2KeyPressed(evt);
+            }
+        });
+        jScrollPane2.setViewportView(jTable2);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40)
+                        .addGap(33, 33, 33)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(161, 161, 161)
-                        .addComponent(lblTime, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(168, 168, 168)
+                        .addComponent(lblTime, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 596, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 19, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addContainerGap()
+                        .addComponent(jScrollPane1)))
+                .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 793, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(70, 70, 70)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(86, 86, 86)
-                        .addComponent(lblTime, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(70, 70, 70)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(43, 43, 43)))))
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(24, 24, 24)
+                                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblTime, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32))
         );
 
         pack();
@@ -413,6 +478,113 @@ String qua = jTable1.getValueAt(jTable1.getSelectedRow(),2).toString();
         }
         }    }//GEN-LAST:event_jTable1MouseClicked
 
+    private void jTable2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTable2KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTable2KeyPressed
+
+    private void txtsearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtsearchKeyReleased
+        DefaultTableModel dm = new StockUpdater().search(choice,txtsearch.getText());
+        jTable1.setModel(dm);
+        
+        
+        
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            try{
+                String qua = jTable1.getValueAt(0,2).toString();
+        
+        
+        
+        if(Integer.parseInt(qua)==0){
+            JOptionPane.showMessageDialog(null, "Out Of Stock", "Warning", JOptionPane.INFORMATION_MESSAGE);
+        }
+        else if(Integer.parseInt(qua)<=5){
+            JOptionPane.showMessageDialog(null, "Stock is Low", "Warning", JOptionPane.INFORMATION_MESSAGE);
+            String name = jTable1.getValueAt(0,1).toString();
+            float price = Float.parseFloat(jTable1.getValueAt(0,3).toString());
+            float buy_price = Float.parseFloat(jTable1.getValueAt(0,6).toString());
+            String type = jTable1.getValueAt(0,4).toString();
+        
+        
+        
+            
+            if(SearchExist(name, price+"","sellno"+jTextField3.getText())){
+            
+            int sellquantity = getQua(name, price+"","sellno"+jTextField3.getText());
+                
+                if(sellquantity < Integer.parseInt(qua)){/// checking if sell quantity gets bigger than product quntity
+                    new SellTable().update("sellno"+jTextField3.getText(),name, price);
+                    retreve("sellno"+jTextField3.getText());
+                    jTextField2.setText(total("sellno"+jTextField3.getText())+"/=");
+                    
+                }
+                else{
+                    JOptionPane.showMessageDialog(null,"no stock left");
+                
+                }
+            }
+            ////before experimenting
+            else if(new SellTable().add("sellno"+jTextField3.getText(),name, price," 2%",buy_price,type)){
+                item_to_sell++;
+                retreve("sellno"+jTextField3.getText());
+                jTextField2.setText(total("sellno"+jTextField3.getText())+"/=");
+                 System.out.println(item_to_sell);
+            
+             }
+             else{
+                JOptionPane.showMessageDialog(null, "problem");
+                }
+          }
+        else{
+            String name = jTable1.getValueAt(0,1).toString();
+             float price = Float.parseFloat(jTable1.getValueAt(0,3).toString());
+            float buy_price = Float.parseFloat(jTable1.getValueAt(0,6).toString());
+            String type = jTable1.getValueAt(0,4).toString();
+        
+            
+            if(SearchExist(name, price+"","sellno"+jTextField3.getText())){
+            
+                int sellquantity = getQua(name, price+"","sellno"+jTextField3.getText());
+                
+                if(sellquantity < Integer.parseInt(qua)){/// checking if sell quantity gets bigger than product quntity
+                    new SellTable().update("sellno"+jTextField3.getText(),name, price);
+                    retreve("sellno"+jTextField3.getText());
+                    jTextField2.setText(total("sellno"+jTextField3.getText())+"/=");
+                    
+                }
+                else{
+                    JOptionPane.showMessageDialog(null,"no stock left");
+                
+                }
+            }
+        ////before experimenting
+        else if(new SellTable().add("sellno"+jTextField3.getText(),name, price," 2%",buy_price,type)){
+            item_to_sell++;
+            retreve("sellno"+jTextField3.getText());
+            jTextField2.setText(total("sellno"+jTextField3.getText())+"/=");
+            System.out.println(item_to_sell);
+            
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "problem");
+        }
+            
+            
+        }
+            txtsearch.setText("");
+            }catch(Exception e){
+                
+            }
+            
+        }
+        
+        
+        
+        
+        if(txtsearch.getText().equalsIgnoreCase("")){
+            retreve();
+        }
+    }//GEN-LAST:event_txtsearchKeyReleased
+
     /**
      * @param args the command line arguments
      */
@@ -462,7 +634,9 @@ String qua = jTable1.getValueAt(jTable1.getSelectedRow(),2).toString();
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField2;
     public javax.swing.JTextField jTextField3;
     private javax.swing.JLabel lblTime;
@@ -483,7 +657,7 @@ public void choice(){
   public void retreve(String a){
        DefaultTableModel dm = new SellTable().getData(a);
        
-        new Home().ordertable.setModel(dm);
+        jTable2.setModel(dm);
         
         
     }
