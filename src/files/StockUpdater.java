@@ -15,9 +15,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class StockUpdater {
     
-    String conString ="jdbc:mysql://localhost:3306/Pointofsale";
-    String username ="root";
-    String passward ="";
+    Connection con;
     
     public boolean add(String name,int stock,float price,String type,String weight,String buy_price){
         
@@ -25,7 +23,7 @@ public class StockUpdater {
         
         try{
             
-            Connection con= (Connection) DriverManager.getConnection(conString, username, passward);
+            con= (Connection) Allconnection.Allconnection();
             
             Statement s =(Statement) con.prepareStatement(sql);
             
@@ -52,7 +50,7 @@ public class StockUpdater {
         String sql = "SELECT * FROM product";
         
         try{
-            Connection con= (Connection) DriverManager.getConnection(conString, username, passward);
+            con= (Connection) Allconnection.Allconnection();
             
             Statement s =(Statement) con.prepareStatement(sql);
             
@@ -89,7 +87,7 @@ public class StockUpdater {
         
         try{
             
-            Connection con= (Connection) DriverManager.getConnection(conString, username, passward);
+            con= (Connection) Allconnection.Allconnection();
             
             Statement s =(Statement) con.prepareStatement(sql);
             
@@ -112,7 +110,7 @@ public class StockUpdater {
         
         try{
             
-            Connection con= (Connection) DriverManager.getConnection(conString, username, passward);
+            con= (Connection) Allconnection.Allconnection();
             
             Statement s =(Statement) con.prepareStatement(sql);
             
@@ -177,7 +175,7 @@ public class StockUpdater {
         
         try{
             
-            Connection con= (Connection) DriverManager.getConnection(conString, username, passward);
+            con= (Connection) Allconnection.Allconnection();
             
             PreparedStatement s =(PreparedStatement) con.prepareStatement(sql);
             
@@ -261,7 +259,7 @@ public class StockUpdater {
         
         try{
             
-            Connection con= (Connection) DriverManager.getConnection(conString, username, passward);
+            con= (Connection) Allconnection.Allconnection();
             
             PreparedStatement s =(PreparedStatement) con.prepareStatement(sql);
             
