@@ -49,9 +49,7 @@ public class SellTable {
     }
     
     public boolean updateSellNumber(){
-        String cons ="jdbc:mysql://localhost:3306/Pointofsale";
-        String user ="root";
-        String pass ="";
+        
         int b = getSellNumber();
         b++;
         
@@ -59,7 +57,7 @@ public class SellTable {
         
         try{
             
-            Connection con= (Connection) DriverManager.getConnection(cons, user, pass);
+            con= (Connection) Allconnection.Allconnection();
             
             Statement s =(Statement) con.prepareStatement(sql);
             
@@ -97,7 +95,7 @@ public class SellTable {
         
         int quantity=1;
         float price = (perprice)*quantity;
-        String sql="INSERT INTO `pub`.`"+a+"` (`no`, `name`, `quantity`, `perprice`, `vat`, `price`, `buy price`, `type`) VALUES (NULL, '"+name+"', '"+quantity+"', '"+perprice+"', '0%', '"+price+"', '"+buy_price+"', '"+type+"')";
+        String sql="INSERT INTO `Pointofsale`.`"+a+"` (`no`, `name`, `quantity`, `perprice`, `vat`, `price`, `buy price`, `type`) VALUES (NULL, '"+name+"', '"+quantity+"', '"+perprice+"', '0%', '"+price+"', '"+buy_price+"', '"+type+"')";
         
         try{
             
@@ -258,9 +256,7 @@ public class SellTable {
     
     
     public boolean SearchExistItem(String name,String price,String a){
-        String conString ="jdbc:mysql://localhost:3306/pub";
-        String username ="root";
-        String passward ="";
+        
         
         String sql1 = "SELECT * FROM "+a+" WHERE name ='"+name+"'AND perprice='"+price+"'";
         
@@ -271,7 +267,7 @@ public class SellTable {
         try{
             
             
-            Connection con= (Connection) DriverManager.getConnection(conString, username, passward);
+            con= (Connection) Allconnection.Allconnection();
             
             Statement s =(Statement) con.createStatement();           
             
@@ -301,15 +297,13 @@ public class SellTable {
     public boolean updateItem(String a,String name,float perprice,String qua){
         
         
-        String conString ="jdbc:mysql://localhost:3306/pub";
-        String username ="root";
-        String passward ="";
+        
         
         String sql = "UPDATE "+a+" SET quantity=quantity+"+qua+",price=price+perprice  WHERE name='"+name+"' AND perprice='"+perprice+"'";
         
         try{
             
-            Connection con= (Connection) DriverManager.getConnection(conString, username, passward);
+            con= (Connection) Allconnection.Allconnection();
             
             Statement s =(Statement) con.prepareStatement(sql);
             
@@ -327,9 +321,7 @@ public class SellTable {
     
     public boolean addItem(String a,String name,float perprice,String vat,float buy_price,String type,String quantity){
         
-        String conString ="jdbc:mysql://localhost:3306/pub";
-        String username ="root";
-        String passward ="";
+        
         
         //int quantity=1;
         float price = (perprice*Integer.parseInt(quantity));
@@ -337,7 +329,7 @@ public class SellTable {
         
         try{
             
-            Connection con= (Connection) DriverManager.getConnection(conString, username, passward);
+            con= (Connection) Allconnection.Allconnection();
             
             Statement s =(Statement) con.prepareStatement(sql);
             
