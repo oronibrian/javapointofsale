@@ -21,7 +21,7 @@ public class Order extends javax.swing.JFrame {
         choice();
         retreve();
         String a = "sellno"+jTextField3.getText();
-        new SellTable().createtable(a);
+        //new SellTable().createtable(a);
         retreve("sellno"+jTextField3.getText());
     }
 
@@ -482,8 +482,7 @@ String qua = jTable1.getValueAt(jTable1.getSelectedRow(),2).toString();
 
     private void txtsearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtsearchKeyReleased
         DefaultTableModel dm = new StockUpdater().search(choice,txtsearch.getText());
-        jTable1.setModel(dm);
-        
+       jTable1.setModel(dm);        
         
         
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
