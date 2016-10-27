@@ -299,7 +299,7 @@ new Order().setVisible(true);
     public javax.swing.JTable ordertable;
     private javax.swing.JTextField txtsearchorder;
     // End of variables declaration//GEN-END:variables
-private void searchDriver() {
+private void outputOrder() {
         String query = "select * from `Pointofsale`.`orderplace` WHERE status='Placed'";
         try {
             ps = con.prepareStatement(query);
