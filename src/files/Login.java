@@ -128,28 +128,36 @@ public class Login extends javax.swing.JFrame {
             {
 
             }
-                JOptionPane.showMessageDialog(null, "Empty fields detected ! Please fill up all fields");
-
+            JOptionPane.showMessageDialog(null, "Empty fields detected ! Please fill up all fields");
 
         } else {
-           String username = txtusername.getText();
-           
-           char[] pass = txtpassword.getPassword(); // Collecting the input
-           String pwd = String.copyValueOf(pass);
-           if(validate_login(username,pwd)){
-            Home h = new Home();
-            h.btnsale.setEnabled(false);
-            h.setVisible(true);
-            this.dispose();
-            setVisible(false);
-           
-           }else{
-             JOptionPane.showMessageDialog(null, "Incorrect Login Credentials");
+            String username = txtusername.getText();
 
-           
-           }
+            char[] pass = txtpassword.getPassword(); // Collecting the input
+            String pwd = String.copyValueOf(pass);
+            if (validate_login(username, pwd)) {
 
-               
+                try {
+                    PreparedStatement pst = conn.prepareStatement("SELECT * FROM user WHERE post ='Manager'");
+
+                    ResultSet rs = pst.executeQuery();
+                    if (rs.next()) {
+                        Home h = new Home();
+                        h.btnsale.setEnabled(false);
+                        h.setVisible(true);
+                        this.dispose();
+                        setVisible(false);
+
+                    }
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Incorrect Login Credentials");
+
+            }
 
         }
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -188,23 +196,23 @@ public class Login extends javax.swing.JFrame {
             }
         });
     }
-    
-private boolean validate_login(String username,String password) {
-   try{           
-       PreparedStatement pst = conn.prepareStatement("Select * from user where Firstname=? and password=?");
-       pst.setString(1, username); 
-       pst.setString(2, password);
-       ResultSet rs = pst.executeQuery();                        
-       if(rs.next())            
-           return true;    
-       else
-           return false;            
-   }
-   catch(Exception e){
-       e.printStackTrace();
-       return false;
-   }       
-}
+
+    private boolean validate_login(String username, String password) {
+        try {
+            PreparedStatement pst = conn.prepareStatement("Select * from user where Firstname=? and password=?");
+            pst.setString(1, username);
+            pst.setString(2, password);
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

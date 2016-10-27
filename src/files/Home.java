@@ -1,6 +1,13 @@
 
 package files;
 
+import static files.Allconnection.conn;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.table.TableModel;
+import net.proteanit.sql.DbUtils;
+
 /**
  *
  * @author oroni
@@ -14,6 +21,9 @@ public class Home extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);  // *** this will center your app ***
         this.setVisible(true);
+        Connection conn = Allconnection.Allconnection();
+        populateOrder();
+
         
     }
     
@@ -31,7 +41,7 @@ public class Home extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         btnsale = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        ordertable = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         cmbsearchorder = new javax.swing.JComboBox<>();
         txtsearchorder = new javax.swing.JTextField();
@@ -70,7 +80,7 @@ public class Home extends javax.swing.JFrame {
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        ordertable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -81,7 +91,7 @@ public class Home extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(ordertable);
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Search Order"));
 
@@ -183,6 +193,22 @@ new Order().setVisible(true);
             }
         });
     }
+    
+    private void populateOrder() {
+        try {
+            PreparedStatement pst = conn.prepareStatement("Select * from orderplace");
+            ResultSet rs = pst.executeQuery();
+            ordertable.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    
+    
+    
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnsale;
@@ -191,7 +217,7 @@ new Order().setVisible(true);
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable ordertable;
     private javax.swing.JTextField txtsearchorder;
     // End of variables declaration//GEN-END:variables
 }
