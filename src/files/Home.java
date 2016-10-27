@@ -1,11 +1,13 @@
-
 package files;
 
 import static files.Allconnection.conn;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 import javax.swing.table.TableModel;
 import net.proteanit.sql.DbUtils;
 
@@ -18,16 +20,23 @@ public class Home extends javax.swing.JFrame {
     Connection con;
     PreparedStatement ps;
     ResultSet rs;
+
     public Home() {
         initComponents();
         this.setLocationRelativeTo(null);  // *** this will center your app ***
         this.setVisible(true);
         con = Allconnection.Allconnection();
-        populateOrder();
-
         
+        Timer t = new Timer(300, new ActionListener() {      
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+        populateOrder();
+            }
+        });
+        t.start();
+
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -225,7 +234,7 @@ public class Home extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 
-new Order().setVisible(true);
+        new Order().setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void btncancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelActionPerformed
@@ -266,22 +275,18 @@ new Order().setVisible(true);
             }
         });
     }
-    
+
     private void populateOrder() {
         try {
             PreparedStatement pst = conn.prepareStatement("Select * from orderplace");
             ResultSet rs = pst.executeQuery();
             ordertable.setModel(DbUtils.resultSetToTableModel(rs));
+           
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-    
-    
-    
-    
-    
-    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRemove;
@@ -305,7 +310,6 @@ private void outputOrder() {
             ps = con.prepareStatement(query);
             rs = ps.executeQuery();
             while (rs.next()) {
-                
 
             }
         } catch (Exception e) {

@@ -3,10 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/home/oroni/NetBeansProjects/PointOfSale/src/files/Home.java</file>
+            <file>file:/home/oroni/NetBeansProjects/PointOfSale/src/files/StockUpdater.java</file>
             <file>file:/home/oroni/NetBeansProjects/PointOfSale/src/files/Order.java</file>
             <file>file:/home/oroni/NetBeansProjects/PointOfSale/src/files/Login.java</file>
-            <file>file:/home/oroni/NetBeansProjects/PointOfSale/src/files/Stock.java</file>
-            <file>file:/home/oroni/NetBeansProjects/PointOfSale/src/files/Home.java</file>
+            <file>file:/home/oroni/NetBeansProjects/PointOfSale/src/files/Allconnection.java</file>
+            <file>file:/home/oroni/NetBeansProjects/PointOfSale/src/files/SellTable.java</file>
         </group>
     </open-files>
 </project-private>
