@@ -175,7 +175,7 @@ public class SellTable {
         dm.addColumn("Per Price");
         dm.addColumn("Quantity");
         //dm.addColumn("Vat");
-        dm.addColumn("Price");
+       // dm.addColumn("Price");
         
         
         String sql = "SELECT * FROM "+a;
@@ -194,13 +194,13 @@ public class SellTable {
                 String perprice = rs.getString(4);
                 //String vat = rs.getString(5);
                 String price = rs.getString(6);
-                String buy_price = rs.getString(7);
+                //String buy_price = rs.getString(7);
                 
                 total = total+Float.parseFloat(price);
                 
                 //System.out.println(total);
                 
-                dm.addRow(new String[]{id,name,perprice,quantity,price,buy_price});
+                dm.addRow(new String[]{id,name,perprice,quantity,price});
                 
                 
                 

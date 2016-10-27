@@ -45,7 +45,7 @@ public class StockUpdater {
         dm.addColumn("Price");
         dm.addColumn("Type");
         dm.addColumn("Weight");
-        dm.addColumn("Buy Price");
+        //dm.addColumn("Buy Price");
         
         String sql = "SELECT * FROM product";
         
@@ -202,9 +202,9 @@ public class StockUpdater {
                 String st = rs.getString(4);
                 String t = rs.getString(5);
                 String w = rs.getString(6);
-                String b = rs.getString(7);
+                //String b = rs.getString(7);
                 
-                dm.addRow(new String[]{i,n,p,st,t,w,b});
+                dm.addRow(new String[]{i,n,p,st,t,w});
                 
             }
             
@@ -229,7 +229,7 @@ public class StockUpdater {
         dm.addColumn("Price");
         dm.addColumn("Type");
         dm.addColumn("Weight");
-        dm.addColumn("Buy Price");
+        //dm.addColumn("Buy Price");
         
         String sql=null;
         
@@ -280,9 +280,9 @@ public class StockUpdater {
                 String st = rs.getString(4);
                 String t = rs.getString(5);
                 String w = rs.getString(6);
-                String bp = rs.getString(7);
+                //String bp = rs.getString(7);
                 
-                dm.addRow(new String[]{i,n,p,st,t,w,bp});
+                dm.addRow(new String[]{i,n,p,st,t,w});
                 
             }
             
