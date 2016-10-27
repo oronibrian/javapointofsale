@@ -3,7 +3,6 @@ package files;
 
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.Statement;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.table.DefaultTableModel;

@@ -1,14 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package files;
 
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.Statement;
 import com.sun.glass.events.KeyEvent;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -25,6 +20,9 @@ public class Order extends javax.swing.JFrame {
         initComponents();
         choice();
         retreve();
+        String a = "sellno"+jTextField3.getText();
+        new SellTable().createtable(a);
+        retreve("sellno"+jTextField3.getText());
     }
 
     /**
@@ -669,7 +667,7 @@ public void choice(){
         
         
        
-        String st;
+        
         
         try{
             
