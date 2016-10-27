@@ -305,7 +305,6 @@ private void outputOrder() {
             ps = con.prepareStatement(query);
             rs = ps.executeQuery();
             while (rs.next()) {
-                String name = String.valueOf(rs.getString("Name"));
                 
 
             }
